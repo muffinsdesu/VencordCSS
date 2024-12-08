@@ -93,14 +93,12 @@ button[aria-label="Send a gift"] {
 }
 
 /* Hide Channel App Launcher next to chat */
-[class^="channelAppLauncher_"]
-{
+[class^="channelAppLauncher_"]{
     display:none;
 }
 
 /* Remove Nitro ad in profiles */
-div[id="profile-customization-tab"] > div[class^="container_"]
-{
+div[id="profile-customization-tab"] > div[class^="container_"]{
     display:none;
 }
 
@@ -111,8 +109,7 @@ li div a[href="/store"]{
 }
 
 /* Disable 'Learn More' for nitro in the popout in the side DM (DubyaDude Regalia) */
-div[class*=overlayBackground_]:has(button[class*=getNitroButton_])
-{
+div[class*=overlayBackground_]:has(button[class*=getNitroButton_]){
     display: none;
 };
 
@@ -123,8 +120,7 @@ div[class*=overlayBackground_]:has(button[class*=getNitroButton_])
 }
 
 /* Profile effects */
-[class^="profileEffects"]
-{
+[class^="profileEffects"]{
     display: none;
 }
 
@@ -147,39 +143,34 @@ img[class^="avatarDecoration"],
   position: relative;
 }
 
-/* Disable clan tag in messages, memebers list, and popout profile view */
+/* Disable clan tag in messages, memebers list, and popout profile view (Dubyadude)*/
 div[class^=body_] > span[class^="clickable_"] [role="button"],
 span[class*="clanTagChiplet_"],
 span[class*="clanTag_"]{
     display: none;
 }
 
-/* Remove Discover button in the footer*/
+/* Remove Discover button in the footer (Dubyadude)*/
 div[class*="listItem"]:has(div[data-list-item-id="guildsnav___guild-discover-button"]){
   display: none;
 }
 
 /* Removes floating server list footer (currently only contains Discover) (DubyaDude gongo and provi) */
-ul[data-list-id='guildsnav'] > div[class^=footer]
-{
+ul[data-list-id='guildsnav'] > div[class^=footer]{
   display: none;
 }
-div[class*=unreadMentionsFixedFooter]
-{
+div[class*=unreadMentionsFixedFooter]{
   bottom: 0px;
 }
 
 /* Make Super Reactions less annoying (DubyaDude Regalia) */
-div[class^="effectsWrapper"]
-{
+div[class^="effectsWrapper"]{
     display: none;
 } 
-img.emoji
-{
+img.emoji{
     opacity: 100;
 }
-div[class*="shakeReaction"]
-{
+div[class*="shakeReaction"]{
     animation: none !important;
 }
 
