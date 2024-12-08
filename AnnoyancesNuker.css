@@ -212,6 +212,10 @@ svg[class*="questsIcon"]{
 	display:none;
 }
 
+[aria-label="Start An Activity"]{
+	display:none;
+}
+
 /* Hacky `CLTR + Shift + I` begins now */
 
 /* Remove Entire Billing Tab in settings. Should probably keep this if nitro */
