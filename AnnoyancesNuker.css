@@ -208,18 +208,29 @@ svg[class*="questsIcon"]{
 	display:none;
 }
 
+/* Some advertised mobile related feature thing */
 [aria-label="Download the mobile app to make your first remix"]{
 	display:none;
 }
 
+/* Remove 'Start an Activity' button in voice call options */
 [aria-label="Start An Activity"]{
 	display:none;
+}
+
+/* Remove redundant gif picker in chat box */
+[aria-label="Open GIF picker"]{
+	display: none;
+}
+
+/* Remove redundant sticker picker in chat box */
+[aria-label="Open sticker picker"]{
+	display: none;
 }
 
 /* Hacky `CLTR + Shift + I` begins now */
 
 /* Remove Entire Billing Tab in settings. Should probably keep this if nitro */
-
 [aria-label="Nitro"],
 [aria-label="Subscriptions"],
 [aria-label="Gift Inventory"],
