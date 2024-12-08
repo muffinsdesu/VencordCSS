@@ -219,7 +219,7 @@ svg[class*="questsIcon"]{
 	display: none;
 }
 
-/* Hacky `CLTR + Shift + I` begins now */
+/* Hacky `CLTR + Shift + I` JS selector begins now */
 
 /* Remove Entire Billing Tab in settings. Should probably keep this if nitro */
 [aria-label="Nitro"],
@@ -249,7 +249,7 @@ svg[class*="questsIcon"]{
 #guild-header-popout-premium-subscribe{
 	display:none;
 }
-/* Remove Server Boost progress */
+/* Remove Server Boost progress bar */
 #channels > ul > li:nth-child(3){
 	display:none;
 }
