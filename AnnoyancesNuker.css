@@ -2,8 +2,9 @@
 * @name Annoyances Nuker
 * @author Muffins
 * @description Removes annoyances (nitpick warning)
-* @version 4.0
+* @version 4.3
 * Use 'CTRL + Shift + I' then element selector then copy js path
+* Also some of these CSS rules make the client slow. 
 **/
 
 /* Begone, new font! */
@@ -82,9 +83,44 @@
     src: url("https://cdn.jsdelivr.net/gh/snappycreeper/olddiscordfont/fonts/Whitney-Italic-700.woff2") format("woff2");
 }
 
+
+/* shrink the user area to not cover the server list (evie person)*/
+.visual-refresh section[aria-label="User area"] {
+	width: calc(var(--custom-guild-sidebar-width) - var(--custom-guild-list-width) + 1px);;
+	left: var(--custom-guild-list-width);
+	bottom: 0px;
+	border-radius: 8px;
+	border: none;
+}
+
+.visual-refresh nav:has([data-list-id="guildsnav"]) {
+	margin-bottom: unset;
+}
+
+/* nuke the top bar */
+.visual-refresh {
+  --vr-header-snippet-space: -40px;
+
+  div.bar_c38106 > * {
+    display: none !important;
+  }
+}
+
+
+/* Bring back the proper time stamps */
+span[class*="timestampInline_"] time::before {
+	content: attr(aria-label);
+	font-size:12px;
+}
+
+span[class*="timestampInline_"] {
+	font-size:0px !important;
+}
+
+
 /* Remove Help Button */
 [aria-label="Help"] {
-    display: none !important;
+    display: !important;
 }
 
 /* Remove gift button in chat box */
@@ -93,13 +129,38 @@ button[aria-label="Send a gift"] {
 }
 
 /* Hide Channel App Launcher next to chat */
-[class^="channelAppLauncher_"]{
-    display:none;
+button[aria-label*="Apps"]{
+    display: none;
+}
+
+/* Remove badge with "Subscriber since [xxxx] */
+div[aria-label^="Subscriber since"] {
+	display: none;
+}
+
+/* Remove the nitro badge in the server member list */
+svg[aria-label^="Server boosting since"] {
+	display: none;
+}
+/* Remove badge "Server boosting since [xxxx]*/
+div[aria-label^="Server boosting since"] {
+	display: none;
+}
+
+/* Remove nitro early supported badge */
+div[aria-label="Early Supporter"] {
+	display: none;
+}
+
+/* Remove HypeSquad badge that everyone forgot existed */
+div[aria-label^="HypeSquad "] {
+	display: none;
 }
 
 /* Remove Nitro ad in profiles */
-div[id="profile-customization-tab"] > div[class^="container_"]{
-    display:none;
+div[id="profile-customization-tab"] > div[class^="container_"]
+{
+    display: none;
 }
 
 /* Hide 'Shop' and 'Store' Tab under Friends (DubyaDude Regalia)*/
@@ -109,18 +170,20 @@ li div a[href="/store"]{
 }
 
 /* Disable 'Learn More' for nitro in the popout in the side DM (DubyaDude Regalia) */
-div[class*=overlayBackground_]:has(button[class*=getNitroButton_]){
+div[class*=overlayBackground_]:has(button[class*=getNitroButton_])
+{
     display: none;
-};
+}
 
 /* Disable emoji inspection upsell (DubyaDude Regalia) */
 [class^="nitroTextAndBadge_"], button:has([class^="premiumIcon_"]),
 [class^="emojiSection_"] [class^="flex_"] div[class*="text-sm-normal"]{
-	display:none;
+	display: none;
 }
 
 /* Profile effects */
-[class^="profileEffects"]{
+[class^="profileEffects"]
+{
     display: none;
 }
 
@@ -143,70 +206,82 @@ img[class^="avatarDecoration"],
   position: relative;
 }
 
-/* Disable clan tag in messages, memebers list, and popout profile view (Dubyadude)*/
-div[class^=body_] > span[class^="clickable_"] [role="button"],
+/* Disable clan tag in messages, memebers list, and popout profile view */
+/*div[class^=body_] > span[class^="clickable_"] [role="button"],
 span[class*="clanTagChiplet_"],
 span[class*="clanTag_"]{
-    display: none;
+    display:   ;
 }
+*/
 
-/* Remove Discover button in the footer (Dubyadude)*/
+/* Remove Discover button in the footer*/
 div[class*="listItem"]:has(div[data-list-item-id="guildsnav___guild-discover-button"]){
   display: none;
 }
 
-/* Removes floating server list footer (currently only contains Discover) (DubyaDude gongo and provi) */
-ul[data-list-id='guildsnav'] > div[class^=footer]{
-  display: none;
-}
-div[class*=unreadMentionsFixedFooter]{
+div[class*=unreadMentionsFixedFooter]
+{
   bottom: 0px;
 }
 
-/* Make Super Reactions less annoying (DubyaDude Regalia) */
-div[class^="effectsWrapper"]{
-    display: none;
-} 
-img.emoji{
-    opacity: 100;
-}
-div[class*="shakeReaction"]{
-    animation: none !important;
+/* Remove server boost level icon */
+div[aria-label^="Level "]{
+	display: none;
 }
 
-/* Remove Discord's social links */
-div[class*="socialLinks"]{
-	display:none;
+/* remove the server boost level for community/level 3+ */
+div[class^="flowerStarContainer__"]{
+	display: none;
 }
 
 /* Remove server boost/guild icon*/
-div[class*="guildIcon"]{
-	display:none;
+/*div[class*="guildIcon"]{
+	display: ;
+}
+*/
+
+/* Make Super Reactions less annoying (DubyaDude Regalia) */
+div[class^="effectsWrapper"]
+{
+    display: none;
+} 
+img.emoji
+{
+    opacity: 100;
+}
+div[class*="shakeReaction"]
+{
+    animation: !important;
+}
+
+/* Remove Discord's social links at the bottom of the settings menu*/
+div[class*="socialLinks"]{
+	display: none;
 }
 
 /* Remove Quests Icon */
 svg[class*="questsIcon"]{
-	display:none;
+	display: none;
 }
 
 /* Remove "Completed a Quest */
 [aria-label="Completed a Quest"]{
-	display:none;
+	display: none;
 }
 
 /* Remove Merch Tab */
 [aria-label="Merch"]{
-	display:none;
+	display: none;
 }
 
-/* Some advertised mobile related feature thing */
+/* Some Mobile related thing */
 [aria-label="Download the mobile app to make your first remix"]{
-	display:none;
+	display: none;
 }
 
-/* Remove 'Start an Activity' button in voice call options */
+/* Remove 'Start an Activity' button under the voice call thing */
 [aria-label="Start An Activity"]{
-	display:none;
+	display: none;
 }
 
 /* Remove redundant gif picker in chat box */
@@ -219,37 +294,99 @@ svg[class*="questsIcon"]{
 	display: none;
 }
 
-/* Hacky `CLTR + Shift + I` JS selector begins now */
-
-/* Remove Entire Billing Tab in settings. Should probably keep this if nitro */
-[aria-label="Nitro"],
-[aria-label="Subscriptions"],
-[aria-label="Gift Inventory"],
-[aria-label="Billing"],
-/* Hacky way to get rid of Server Boost" tab, separators, and "Billing Settings"*/
-#app-mount > div.appAsidePanelWrapper_bd26cc > div.notAppAsidePanel_bd26cc > div.app_bd26cc > div > div.layers_d4b6c5.layers_a01fb1 > div:nth-child(2) > div > div.sidebarRegion_c25c6d > div > nav > div > div:nth-child(13) > div,
-#app-mount > div.appAsidePanelWrapper_bd26cc > div.notAppAsidePanel_bd26cc > div.app_bd26cc > div > div.layers_d4b6c5.layers_a01fb1 > div:nth-child(2) > div > div.sidebarRegion_c25c6d > div > nav > div > div:nth-child(12),
-#app-mount > div.appAsidePanelWrapper_bd26cc > div.notAppAsidePanel_bd26cc > div.app_bd26cc > div > div.layers_d4b6c5.layers_a01fb1 > div:nth-child(2) > div > div.sidebarRegion_c25c6d > div > nav > div > div:nth-child(14),
-#app-mount > div.appAsidePanelWrapper_bd26cc > div.notAppAsidePanel_bd26cc > div.app_bd26cc > div > div.layers_d4b6c5.layers_a01fb1 > div:nth-child(2) > div > div.sidebarRegion_c25c6d > div > nav > div > div:nth-child(15)
-{
-	display:none;
+/* Get these dumb sound buttons out of here */
+div[class^="soundButtonRefresh"]{
+	display: none;
 }
 
-/* Remove Activities drop down menu. You must hide activity cards first */
-#app-mount > div.appAsidePanelWrapper_bd26cc > div.notAppAsidePanel_bd26cc > div.app_bd26cc > div > div.layers_d4b6c5.layers_a01fb1 > div > div > div > div > div.chat_a7d72e > div.content_a7d72e > div > aside > div > div > h3:nth-child(2) {
-	display:none;
+/* Upsell nuker */
+[class*="marketingButtonBackground"],
+[class*="newBadge_"],
+[class*="premiumTab"],
+[class*="premiumBadge"],
+[class*="premiumFeatureBorder"],
+div[class*="selectionGroup"]:has(div[class*="tryItOutButtons"] > button[class*="shinyButton_"]),
+[class*="upsell"]{
+	display: none;
 }
+
+/* Remove Entire Billing Tab in settings. Should probably keep this if nitro purchaser. Im going to leave the seperators alone due to laziness..  */
+/*
+div[aria-label="Nitro"],
+div[aria-label="Subscriptions"],
+div[aria-label="Gift Inventory"],
+div[aria-label="Billing"],
+#app-mount > div.appAsidePanelWrapper_a3002d > div.notAppAsidePanel_a3002d > div.app_a3002d > div > div.layers__960e4.layers__160d8 > div:nth-child(2) > div > div.sidebarRegion__23e6b > div > nav > div > div:nth-child(15),
+[data-text-variant="eyebrow"]{
+    display: none;
+}
+*/
+
+/* Remove Activities drop down menu*/
+[class*='membersGroup']:has([role=button]),
+[class*='member'] [class*='container']:has([class*='badges']){
+	display: none;
+}
+
+/* hide fast reacts - if only they didnt cover part of a message.. */
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(1),
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(2),
+.button_f7ecac.hoverBarButton_f84418:nth-of-type(3),
+.separator_f84418 {
+	display:;
+}
+
 
 /* Remove Quest Available Ads */
-#popout_1126 > div {
-	display:none;
+/*#popout_1126 > div {
+	display:;
 }
+*/
 
 /* Remove Server Boost in Server Drop Down*/
 #guild-header-popout-premium-subscribe{
-	display:none;
+	display: none;
 }
-/* Remove Server Boost progress bar */
+/* Remove Server Boost progress */
 #channels > ul > li:nth-child(3){
-	display:none;
+	display: none;
 }
+
+/* Remove Download Apps */
+#app-mount > div.appAsidePanelWrapper_a3002d > div.notAppAsidePanel_a3002d > div.app_a3002d > div > div.layers__960e4.layers__160d8 > div > div > div > div.content_c48ade > div.sidebar_c48ade > nav > ul > div.itemsContainer_ef3116 > div > div:nth-child(7){
+	display: none;
+}
+
+/* Remove call button on right clicking user profile in DMs to prevent the skill issue of calling 'em */
+#user-context-call {
+	display: none;
+}
+
+/* Remove "X number in voice  */
+#app-mount > div.appAsidePanelWrapper_a3002d > div.notAppAsidePanel_a3002d > div.app_a3002d > div > div.layers__960e4.layers__160d8 > div > div > div > div.content_c48ade > div.sidebar_c48ade > div.sidebarList_c48ade.sidebarListRounded_c48ade > nav > div.container__7aaec.bottom__7aaec {
+	display: none;
+}
+
+/* Hide nameplates (Pointy)*/
+[style^="background: linear-gradient(90deg"]:has([src*="/nameplates/"]) { display: none; }
+[class*="dm_"]:has([class*="linkPlated_"]) {
+    & [class*="linkPlated_"] { padding-right: var(--space-16); }
+    & [class*="closeButtonPlated_"] {
+        opacity: 0.7;
+        &:hover { opacity: 1; }
+        & [class^="innerCloseButtonPlated"] {
+            opacity: unset; 
+            background: none;
+            & svg {
+                color: inherit;
+                &:is(:hover, :focus-within) { color: var(--interactive-hover); }
+            }
+        }
+    }
+}
+
+/* Remove react to a status */
+[class*=statusPopover],
+[class*=avatarPopover_]{
+	display:none;
+  }
