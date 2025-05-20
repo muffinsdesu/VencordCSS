@@ -207,12 +207,12 @@ img[class^="avatarDecoration"],
 }
 
 /* Disable clan tag in messages, memebers list, and popout profile view */
-/*div[class^=body_] > span[class^="clickable_"] [role="button"],
+div[class^=body_] > span[class^="clickable_"] [role="button"],
 span[class*="clanTagChiplet_"],
 span[class*="clanTag_"]{
     display:   ;
 }
-*/
+
 
 /* Remove Discover button in the footer*/
 div[class*="listItem"]:has(div[data-list-item-id="guildsnav___guild-discover-button"]){
