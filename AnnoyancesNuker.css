@@ -210,7 +210,7 @@ img[class^="avatarDecoration"],
 div[class^=body_] > span[class^="clickable_"] [role="button"],
 span[class*="clanTagChiplet_"],
 span[class*="clanTag_"]{
-    display:   ;
+    display: none;
 }
 
 
