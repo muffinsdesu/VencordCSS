@@ -1,4 +1,4 @@
-Removes ads and some annoyances from a certain chat app.
-Credit for some stuff from DubyaDude: https://github.com/DubyaDude/DubyasCleanupOfDiscord
-Credit to ridge: https://codeberg.org/ridge/Discord-AdBlock
-and other peoples css 
+Removes ads, annoyances, and brings back the Whitney font for a certain chat app. <br />
+Credit for some stuff from DubyaDude: https://github.com/DubyaDude/DubyasCleanupOfDiscord <br />
+Credit to ridge: https://codeberg.org/ridge/Discord-AdBlock <br />
+and other peoples css
