@@ -544,6 +544,6 @@ div[class^="notice"]:has(path[d^="M16.23 12c0 1.29-.95 2.25-2.22 2.25A2.18"]) {
 }
 
 /* remove profile editing panel */
-aside[id="profile-modal-editing-panel"] {
+aside[id="user-profile-editing-panel"] {
   display: none;
  }
